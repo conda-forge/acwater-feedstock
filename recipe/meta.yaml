@@ -29,6 +29,15 @@ requirements:
     - pandas
     - scipy
 
+    # upstream Polymer dependencies
+    - cdsapi
+    - cython
+    - ecmwf-api-client
+    - gdal
+    - pygrib
+    - pyhdf
+    - xarray
+
 test:
   imports:
     - acwater
