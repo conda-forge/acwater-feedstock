@@ -23,11 +23,11 @@ requirements:
 
   run:
     - python >=3.6
-    - numpy
-    - scipy
-    - pandas
+    - geoarray
     - netcdf4
-    - geoarray 
+    - numpy
+    - pandas
+    - scipy 
 
 test:
   imports:
