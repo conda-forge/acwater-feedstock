@@ -27,12 +27,12 @@ requirements:
     - netcdf4
     - numpy
     - pandas
-    - scipy 
+    - scipy
 
 test:
   imports:
     - acwater
- 
+
 about:
   home: https://gitlab.awi.de/phytooptics/acwater
   summary: ACwater Polymer implements a class to load an EnMAP object and execute atmospheric correction for water surfaces and requires EnPT for the EnMAP data processing.
