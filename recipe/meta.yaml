@@ -10,7 +10,7 @@ source:
   sha256: 2f7744b4c34a57fb4b50d89ad9653b50c328a506c41303e691345f0afafdbc1c
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
@@ -23,16 +23,25 @@ requirements:
 
   run:
     - python >=3.6
-    - numpy
-    - scipy
-    - pandas
+    - geoarray
     - netcdf4
-    - geoarray 
+    - numpy
+    - pandas
+    - scipy
+
+    # upstream Polymer dependencies
+    - cdsapi
+    - cython
+    - ecmwf-api-client
+    - gdal
+    - pygrib
+    - pyhdf
+    - xarray
 
 test:
   imports:
     - acwater
- 
+
 about:
   home: https://gitlab.awi.de/phytooptics/acwater
   summary: ACwater Polymer implements a class to load an EnMAP object and execute atmospheric correction for water surfaces and requires EnPT for the EnMAP data processing.
