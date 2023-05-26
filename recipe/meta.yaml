@@ -1,18 +1,18 @@
 {% set name = "acwater" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 2f7744b4c34a57fb4b50d89ad9653b50c328a506c41303e691345f0afafdbc1c
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 0610879425c51b901222f7eba87e6269eac1856e78299e1ebb7573ea6dc329ee
 
 build:
-  number: 1
+  number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - acwater = acwater.cli:main
 
