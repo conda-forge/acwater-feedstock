@@ -1,5 +1,5 @@
 {% set name = "acwater" %}
-{% set version = "0.3.1" %}
+{% set version = "0.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0610879425c51b901222f7eba87e6269eac1856e78299e1ebb7573ea6dc329ee
+  sha256: f6b68976cda51044c965c901acefc38c7b76a2cd34d0ebff2004a2e288d49975
 
 build:
   number: 0
@@ -19,10 +19,10 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.8
 
   run:
-    - python >=3.6
+    - python >=3.8
     - geoarray
     - netcdf4
     - numpy
