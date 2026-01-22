@@ -25,7 +25,6 @@ requirements:
     - python >={{ python_min }}
     - enpt
     - polymer
-    - geoarray
     - netcdf4
     - numpy
     - pandas
