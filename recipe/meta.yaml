@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://gitlab.awi.de/phytooptics/acwater/-/archive/v{{ version }}/acwater-v{{ version }}.tar.gz
-  sha256: b267e4511fa71544c6bdec9a924f59c3e76209a6ea7d5f656081c233c9d77327
+  sha256: 13a92d65c38647cc0e9d65a393a4b37613711366996dab3cd3bc3920eeb4e13d
 
 build:
   number: 0
