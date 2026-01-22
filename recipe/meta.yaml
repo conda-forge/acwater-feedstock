@@ -1,16 +1,16 @@
 {% set name = "acwater" %}
-{% set version = "0.3.2" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f6b68976cda51044c965c901acefc38c7b76a2cd34d0ebff2004a2e288d49975
+  url: https://gitlab.awi.de/phytooptics/acwater/-/archive/v{{ version }}/acwater-v{{ version }}.tar.gz
+  sha256: b267e4511fa71544c6bdec9a924f59c3e76209a6ea7d5f656081c233c9d77327
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -23,30 +23,25 @@ requirements:
 
   run:
     - python >={{ python_min }}
+    - enpt
+    - polymer
     - geoarray
     - netcdf4
     - numpy
     - pandas
     - scipy
 
-    # upstream Polymer dependencies
-    - cdsapi
-    - cython <3  # Polymer (4.16.1) cannot be compiled with Cython 3, see https://forum.hygeos.com/viewtopic.php?f=7&t=221&start=10
-    - ecmwf-api-client
-    - gdal
-    - pygrib
-    - pyhdf
-    - xarray
-
 test:
   requires:
     - python {{ python_min }}
   imports:
     - acwater
+    - enpt
+    - polymer
 
 about:
   home: https://gitlab.awi.de/phytooptics/acwater
-  summary: ACwater Polymer implements a class to load an EnMAP object and execute atmospheric correction for water surfaces and requires EnPT for the EnMAP data processing.
+  summary: Atmospheric correction of EnMAP hyperspectral data for water surfaces (ACwater), based on EnPT and Polymer.
   license: GPL-3.0-or-later
   license_file: LICENSE
 
