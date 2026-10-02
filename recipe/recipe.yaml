@@ -41,7 +41,7 @@ tests:
         - acwater
         - enpt
         - polymer
-      pip_check: false
+      pip_check: True
       python_version:
         - ${{ python_min }}.*
         - "*"
