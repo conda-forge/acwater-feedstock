@@ -1,0 +1,69 @@
+schema_version: 1
+
+context:
+  name: acwater
+  version: "0.5.1"
+  python_min: "3.11"  # polymer is not 3.10-compatible
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://gitlab.awi.de/phytooptics/acwater/-/archive/v${{ version }}/acwater-v${{ version }}.tar.gz
+  sha256: 7bf20e25b417994003eaaa9a963f6df299a0110baee5e179aa92aea6573659d2
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+  python:
+    entry_points:
+      - acwater = acwater.cli:main
+
+requirements:
+  host:
+    - hatchling
+    - pip
+    - python ${{ python_min }}.*
+  run:
+    - python >=${{ python_min }}
+    - enpt
+    - polymer
+    - netcdf4
+    - numpy
+    - pandas
+    - scipy
+    - cdsapi
+
+tests:
+  - python:
+      imports:
+        - acwater
+        - enpt
+        - polymer
+      pip_check: false
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - files:
+      source:
+        - tests/test_api.py
+    requirements:
+      run:
+        - python ${{ python_min }}.*
+        - pip
+        - pytest
+    script:
+      - pytest tests/test_api.py -v
+
+about:
+  summary: Atmospheric correction of EnMAP hyperspectral data for water surfaces (ACwater), based on EnPT and Polymer.
+  license: GPL-3.0-or-later
+  license_file: LICENSE
+  homepage: https://gitlab.awi.de/phytooptics/acwater
+
+extra:
+  recipe-maintainers:
+    - josbel96
+    - danschef
