@@ -3,7 +3,6 @@ schema_version: 1
 context:
   name: acwater
   version: "0.5.1"
-  python_min: "3.11"  # polymer is not 3.10-compatible
 
 package:
   name: ${{ name|lower }}
